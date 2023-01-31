@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
@@ -21,9 +22,15 @@ namespace CityBreaks.Pages.PropertyManager
         [BindProperty]
         [Display(Name = "Available From")]
         public DateTime AvailableFrom { get; set; }
+        [BindProperty]
+        [Display(Name="City")]
+        public string SelectedCity { get; set; }
+        public SelectList Cities { get; set; }
         public void OnGet()
         {
-
+            var cities = new[] {"London", "Berlin", "Paris",
+            "Rome", "New York"};
+            Cities = new SelectList(cities);
         }
     }
 }

@@ -48,13 +48,23 @@ namespace CityBreaks.Pages.PropertyManager
         {
             var cities = new List<City>
     {
-        new City{ Id = 1, Name = "London"},
-        new City{ Id = 2, Name = "Paris" },
-        new City{ Id = 3, Name = "New York" },
-        new City{ Id = 4, Name = "Rome" },
-        new City{ Id = 5, Name = "Dublin" }
+        new City{ Id = 1, Name = "London", Country = new Country{
+ CountryName = "United Kingdom"} },
+        new City{ Id = 2, Name = "York" , Country = new Country{
+ CountryName = "United Kingdom"} },
+        new City{ Id = 3, Name = "Venice", Country = new Country{
+ CountryName = "Italy"} },
+        new City{ Id = 4, Name = "Rome", Country = new Country{
+ CountryName = "Italy" } },
+        new City{ Id = 5, Name = "Madrid" , Country = new Country{
+ CountryName = "Spain" } },
+        new City{ Id = 5, Name = "Barcelona" , Country = new Country{
+ CountryName = "Spain" } },
+        new City{ Id = 5, Name = "Cadiz" , Country = new Country{
+ CountryName = "Spain" } }
     };
-            return new SelectList(cities, nameof(City.Id), nameof(City.Name));
+            return new SelectList(cities, nameof(City.Id), nameof(City.Name),
+         null, "Country.CountryName");
         }
     }
 }

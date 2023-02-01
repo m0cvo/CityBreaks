@@ -4,14 +4,16 @@
     ViewData["Title"] = "Home page";
 }
 
-@*<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>*@
+<div class="col-4">
+    <form method="post">
+        <div class="mb-3">
+            <label class="form-label" asp-for="SelectedCities"></label>
+            <select class="form-control" asp-for="SelectedCities" asp-items="Model.Cities"></select>
+        </div>
 
-<ul>
-    @foreach (var city in Model.Cities)
-    {
-        <li><a asp-page="/City" asp-route-cityName="@city">@city</a></li>
-    }
-</ul>
+        <div class="mb-3">
+        <button class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+<p>@Model.Message</p>

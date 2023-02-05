@@ -16,6 +16,10 @@
                 asp-items="Model.Cities"></select>
     </div>
     <div class="mb-3">
+        <label asp-for="Rating"></label>
+        <select class="form-control" asp-for="Rating" asp-items="Html.GetEnumSelectList<Rating>()"></select>
+    </div>
+    <div class="mb-3">
         <label class="form-label" asp-for="Name"></label>
         <input class="form-control" asp-for="Name" />
     </div>
@@ -29,7 +33,7 @@
     </div>
     <div class="mb-3">
         <label class="form-label" asp-for="AvailableFrom"></label>
-        <input class="form-control" asp-for="AvailableFrom" />
+        <input class="form-control" asp-for="AvailableFrom" asp-format="{0:yyyy-MM-ddTHH:mm}" />
     </div>
     <div class="mb-3">
         <label asp-for="SmokingPermitted"></label>

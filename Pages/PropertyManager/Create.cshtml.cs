@@ -18,6 +18,8 @@ namespace CityBreaks.Pages.PropertyManager
         [Display(Name = "Day Rate")]
         public decimal DayRate { get; set; }
         [BindProperty]
+        public Rating Rating { get; set; }
+        [BindProperty]
         [Display(Name = "Smoking Permitted")]
         public bool SmokingPermitted { get; set; }
         [BindProperty]

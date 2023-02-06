@@ -1,6 +1,7 @@
 using CityBreaks.PageRouteModelConventions;
 using CityBreaks.ParameterTransformers;
 using CityBreaks.RouteContraints;
+using CityBreaks.Services;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,9 @@ builder.Services.AddRazorPages().AddRazorPagesOptions(options => {
     options.Conventions.Add(new PageRouteTransformerConvention(
        new KebabPageRouteParameterTransformer()));
 });
+builder.Services.AddTransient<ICityService, SimpleCityService>();
+builder.Services.AddTransient<LifetimeDemoService>();
+builder.Services.AddSingleton<SingletonService>();
 builder.Services.Configure<RouteOptions>(options =>
 {
     options.LowercaseUrls= true;

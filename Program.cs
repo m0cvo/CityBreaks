@@ -3,6 +3,8 @@ using CityBreaks.ParameterTransformers;
 using CityBreaks.RouteContraints;
 using CityBreaks.Services;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
+using Microsoft.EntityFrameworkCore;
+using CityBreaks.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +23,10 @@ builder.Services.Configure<RouteOptions>(options =>
     options.LowercaseUrls= true;
     options.ConstraintMap.Add("city", typeof(CityRouteConstraint));
     options.ConstraintMap.Add("slug", typeof(SlugParameterTransformer));
+});
+builder.Services.AddDbContext<CityBreaksContext>(options =>
+{
+    options.UseSqlite(builder.Configuration.GetConnectionString ("CityBreaksContext"));
 });
 var app = builder.Build();
 

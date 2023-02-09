@@ -14,4 +14,15 @@ public class CityService : ICityService
             .Include(c => c.Properties);
         return await cities.ToListAsync();
     }
+
+    public async Task<City> GetByNameAsync(string name)
+    {
+        name = name.Replace("-", " ");
+        return await _context.Cities
+            .Include(c => c.Country)
+            .Include(c => c.Properties.Where(p =>
+     p.AvailableFrom < DateTime.Now))
+            .SingleOrDefaultAsync(c =>
+     EF.Functions.Collate(c.Name, "NOCASE") == name);
+    }
 }

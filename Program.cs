@@ -5,6 +5,7 @@ using CityBreaks.Services;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.EntityFrameworkCore;
 using CityBreaks.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +30,12 @@ builder.Services.AddDbContext<CityBreaksContext>(options =>
 {
     options.UseSqlite(builder.Configuration.GetConnectionString ("CityBreaksContext"));
 });
+builder.Services.AddAuthentication(CookieAuthenticationDefaults
+ .AuthenticationScheme)
+.AddCookie(options =>
+{
+    options.LoginPath = "/login";
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -44,6 +51,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();

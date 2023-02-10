@@ -17,7 +17,14 @@ namespace CityBreaks.Pages
         }
 
         public List<City> Cities { get; set; }
-        public async Task OnGetAsync() => Cities =
-  await _cityService.GetAllAsync();
+        public async Task<IActionResult> OnGetAsync()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                Cities = await _cityService.GetAllAsync();
+                return Page();
+            }
+            return Challenge();
+        }
     }
 }

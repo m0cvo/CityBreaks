@@ -28,16 +28,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="align-content-end">
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <p>@User.Identity.Name, you are logged in</p>
-                    }
-                    else
-                    {
-                        <a asp-page="/login">Sign in</a>
-                    }
-                </div>
+                <partial name="_LoginPartial" />
             </div>
         </nav>
     </header>

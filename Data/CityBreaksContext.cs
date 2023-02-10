@@ -1,10 +1,11 @@
 ﻿using CityBreaks.Data.Configuration;
 using CityBreaks.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CityBreaks.Data
 {
-    public class CityBreaksContext : DbContext
+    public class CityBreaksContext : IdentityDbContext<CityBreaksUser>
     {
         public CityBreaksContext(DbContextOptions options) : base(options)
         {
@@ -20,6 +21,7 @@ namespace CityBreaks.Data
                 .ApplyConfiguration(new CityConfiguration())
                 .ApplyConfiguration(new CountryConfiguration())
                 .ApplyConfiguration(new PropertyConfiguration());
+            base.OnModelCreating(builder);
         }
 
     }

@@ -11,5 +11,6 @@
         public decimal DayRate { get; set; }
         public bool SmokingPermitted { get; set; }
         public DateTime AvailableFrom { get; set; }
+        public DateTime? Deleted { get; set; }
     }
 }

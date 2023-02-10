@@ -8,71 +8,88 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CityBreaks.Data;
 using CityBreaks.Models;
+using CityBreaks.Services;
+using System.ComponentModel.DataAnnotations;
 
 namespace CityBreaks.Pages.PropertyManager
 {
     public class EditModel : PageModel
     {
-        private readonly CityBreaks.Data.CityBreaksContext _context;
+        private readonly IPropertyService _propertyService;
+        private readonly ICityService _cityService;
 
-        public EditModel(CityBreaks.Data.CityBreaksContext context)
+        public EditModel(IPropertyService propertyService, ICityService cityService)
         {
-            _context = context;
+            _propertyService = propertyService;
+            _cityService = cityService;
         }
 
-        [BindProperty]
-        public Property Property { get; set; } = default!;
+        public SelectList Cities { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public int Id { get; set; }
+        [BindProperty, Display(Name = "City")]
+        public int CityId { get; set; }
+        [BindProperty, Required]
+        public string Name { get; set; }
+        [BindProperty, Required]
+        public string Address { get; set; }
+        [BindProperty, Display(Name = "Maximum Number Of Guests")]
+        public int MaxNumberOfGuests { get; set; }
+        [BindProperty, Display(Name = "Daily Rate")]
+        public decimal DayRate { get; set; }
+        [BindProperty, Display(Name = "Smoking?")]
+        public bool SmokingPermitted { get; set; }
+        [BindProperty, Display(Name = "Available From")]
+        public DateTime AvailableFrom { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync()
         {
-            if (id == null || _context.Properties == null)
-            {
-                return NotFound();
-            }
+            var property = await _propertyService.FindAsync(Id);
 
-            var property =  await _context.Properties.FirstOrDefaultAsync(m => m.Id == id);
             if (property == null)
             {
                 return NotFound();
             }
-            Property = property;
-           ViewData["CityId"] = new SelectList(_context.Cities, "Id", "Id");
+            Address = property.Address;
+            AvailableFrom = property.AvailableFrom;
+            CityId = property.CityId;
+            DayRate = property.DayRate;
+            MaxNumberOfGuests = property.MaxNumberOfGuests;
+            Name = property.Name;
+            SmokingPermitted = property.SmokingPermitted;
+
+            Cities = await GetCityOptions();
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
+                Cities = await GetCityOptions();
                 return Page();
             }
 
-            _context.Attach(Property).State = EntityState.Modified;
-
-            try
+            var property = new Property
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PropertyExists(Property.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+                Address = Address,
+                AvailableFrom = AvailableFrom,
+                CityId = CityId,
+                DayRate = DayRate,
+                Id = Id,
+                MaxNumberOfGuests = MaxNumberOfGuests,
+                Name = Name,
+                SmokingPermitted = SmokingPermitted
+            };
+            await _propertyService.UpdateAsync(property);
 
             return RedirectToPage("./Index");
         }
 
-        private bool PropertyExists(int id)
+        private async Task<SelectList> GetCityOptions()
         {
-          return _context.Properties.Any(e => e.Id == id);
+            var cities = await _cityService.GetAllAsync();
+            return new SelectList(cities, nameof(City.Id), nameof(City.Name));
         }
     }
 }

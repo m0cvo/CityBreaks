@@ -16,6 +16,7 @@ builder.Services.AddRazorPages().AddRazorPagesOptions(options => {
        new KebabPageRouteParameterTransformer()));
 });
 builder.Services.AddScoped<ICityService, CityService>();
+builder.Services.AddScoped<IPropertyService, PropertyService>();
 builder.Services.AddTransient<LifetimeDemoService>();
 builder.Services.AddSingleton<SingletonService>();
 builder.Services.Configure<RouteOptions>(options =>

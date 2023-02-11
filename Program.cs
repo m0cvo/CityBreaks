@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using CityBreaks.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using CityBreaks.Models;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,8 +38,13 @@ builder.Services.AddDbContext<CityBreaksContext>(options =>
 //{
 //    options.LoginPath = "/login";
 //});
-builder.Services.AddDefaultIdentity<CityBreaksUser>()
-   .AddEntityFrameworkStores<CityBreaksContext>();
+builder.Services.AddDefaultIdentity<CityBreaksUser>(options => {
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+}).AddEntityFrameworkStores<CityBreaksContext>();
+   
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

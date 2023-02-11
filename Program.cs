@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,8 +42,8 @@ builder.Services.AddDefaultIdentity<CityBreaksUser>(options => {
     options.Password.RequireLowercase = false;
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequireUppercase = false;
-})
-    .AddEntityFrameworkStores<CityBreaksContext>();
+    options.SignIn.RequireConfirmedAccount = true;
+}).AddEntityFrameworkStores<CityBreaksContext>();
 
 builder.Services.AddScoped<ICityService, CityService>();
 builder.Services.AddTransient<LifetimeDemoService>();
@@ -52,7 +53,7 @@ builder.Services.AddScoped<IPriceService, GbPriceService>();
 builder.Services.AddScoped<IPriceService, UsPriceService>();
 builder.Services.AddScoped<IPriceService, DefaultPriceService>();
 builder.Services.AddScoped<IPropertyService, PropertyService>();
-
+builder.Services.AddTransient<IEmailSender, EmailService>();
 
 
 var app = builder.Build();

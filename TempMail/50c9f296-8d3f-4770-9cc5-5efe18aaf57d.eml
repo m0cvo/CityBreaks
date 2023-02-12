@@ -1,0 +1,9 @@
+From: test@test.com
+Date: Sun, 12 Feb 2023 11:57:48 +0000
+Subject: Confirm your email
+Message-Id: <CO27HN9Y5JU4.1YVITC0P3BZO3@nigel-office-pc>
+To: paul@test.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+Please confirm your account by <a href='https://localhost:7183/identity/account/confirm-email?userId=c4c7c0fc-e435-4e85-89cc-e262e72a532f&amp;code=Q2ZESjhFU3UwN2srSkxwQm1yTjlmYUswM0k4UkdMSlJxMEJnU1U2Qmo4Vzh0N0VMZ1VIK1FybnNtZjZ1TTBZUnhEekhmaVRpS3RWMW1sV0swTmoyK1prY0ZmT0ZYSTRNYVVXenBkMzJtRFhpcm5FNTZ3QllNUlRkUFp1ZTlzM24wOXVRZnpyZWpqZEl3ZGZaUktkNnk5VGEyYmtFSGhxeklGS0NxcHNuYlI1OW82UmxsbG1sOVdLNjV0UWdINDFZYVdVSzFraFgwVkYxQ3lQZlVaaldoOWpHZ3luVnQxRkJPU1hBMFBZdnFKS21UMFdhMCsrZEtjcWUxSGNmb3ZIZEJQNS91Zz09&amp;returnUrl=%2F'>clicking here</a>.

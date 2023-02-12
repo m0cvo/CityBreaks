@@ -15,7 +15,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add builder.Services to the container.
 builder.Services.AddRazorPages(options => {
-    options.Conventions.AddPageRoute("/Index", "FindMe");
+    options.Conventions.AuthorizePage("/Index");
+    options.Conventions.AuthorizeFolder("/CityManager");
+    options.Conventions.AuthorizeFolder("/CountryManager");
+    options.Conventions.AuthorizeFolder("/PropertyManager");
     options.Conventions.Add(new CultureTemplatePageRouteModelConvention());
     options.Conventions.Add(new PageRouteTransformerConvention(new KebabPageRouteParameterTransformer()));
 });
@@ -43,7 +46,9 @@ builder.Services.AddDefaultIdentity<CityBreaksUser>(options => {
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequireUppercase = false;
     options.SignIn.RequireConfirmedAccount = true;
-}).AddEntityFrameworkStores<CityBreaksContext>();
+})
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<CityBreaksContext>();
 
 builder.Services.AddScoped<ICityService, CityService>();
 builder.Services.AddTransient<LifetimeDemoService>();
@@ -54,7 +59,7 @@ builder.Services.AddScoped<IPriceService, UsPriceService>();
 builder.Services.AddScoped<IPriceService, DefaultPriceService>();
 builder.Services.AddScoped<IPropertyService, PropertyService>();
 builder.Services.AddTransient<IEmailSender, EmailService>();
-
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 

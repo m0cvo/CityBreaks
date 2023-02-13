@@ -19,6 +19,7 @@ builder.Services.AddRazorPages(options => {
     options.Conventions.AuthorizeFolder("/CityManager");
     options.Conventions.AuthorizeFolder("/CountryManager");
     options.Conventions.AuthorizeFolder("/PropertyManager");
+    options.Conventions.AuthorizeFolder("/RolesManager", "AdminPolicy");
     options.Conventions.Add(new CultureTemplatePageRouteModelConvention());
     options.Conventions.Add(new PageRouteTransformerConvention(new KebabPageRouteParameterTransformer()));
 });
@@ -60,6 +61,11 @@ builder.Services.AddScoped<IPriceService, DefaultPriceService>();
 builder.Services.AddScoped<IPropertyService, PropertyService>();
 builder.Services.AddTransient<IEmailSender, EmailService>();
 builder.Services.AddAuthorization();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminPolicy",
+  policyBuilder => policyBuilder.RequireClaim("Admin"));
+});
 
 var app = builder.Build();
 

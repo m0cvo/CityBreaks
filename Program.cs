@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using CityBreaks.AuthorizationHandlers;
+using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -66,6 +68,9 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("AdminPolicy",
   policyBuilder => policyBuilder.RequireClaim("Admin"));
 });
+//builder.Services.AddSingleton<IAuthorizationHandler, ViewRolesHandler>();
+builder.Services.AddSingleton<IAuthorizationHandler, IsInRoleHandler>();
+builder.Services.AddSingleton<IAuthorizationHandler, HasClaimHandler>();
 
 var app = builder.Build();
 

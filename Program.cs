@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using CityBreaks.AuthorizationHandlers;
 using Microsoft.AspNetCore.Authorization;
+using static CityBreaks.Pages.CityModel;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -71,6 +73,7 @@ builder.Services.AddAuthorization(options =>
 //builder.Services.AddSingleton<IAuthorizationHandler, ViewRolesHandler>();
 builder.Services.AddSingleton<IAuthorizationHandler, IsInRoleHandler>();
 builder.Services.AddSingleton<IAuthorizationHandler, HasClaimHandler>();
+builder.Services.AddSingleton<IBookingService, BookingService>();
 
 var app = builder.Build();
 
@@ -90,5 +93,19 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+app.MapPost("/api/property/booking", ([FromBody] BookingInputModel model,
+    [FromServices] IBookingService bookingService) =>
+    {
+        var booking = new Booking
+        {
+            StartDate = model.StartDate.Value,
+            EndDate = model.EndDate.Value,
+            NumberOfGuests = model.NumberOfGuests,
+            DayRate = model.Property.DayRate
+        };
+        var totalCost = bookingService.Calculate(booking);
+        return Results.Ok(new { TotalCost = totalCost });
+    });
 
 app.Run();

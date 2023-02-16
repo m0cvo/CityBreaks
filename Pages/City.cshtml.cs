@@ -38,11 +38,21 @@ public class CityModel : PageModel
         return Partial("_PropertyDetailsPartial", model);
     }
 
-    public ContentResult OnPostBooking(BookingInputModel model)
+    //public ContentResult OnPostBooking(BookingInputModel model)
+    //{
+    //    var numberOfDays = (int)(model.EndDate.Value - model.StartDate.Value).TotalDays;
+    //    var totalCost = numberOfDays * model.DayRate * model.NumberOfGuests;
+    //    return Content(totalCost.ToString("c"));
+    //}
+
+    public JsonResult OnPostBooking([FromBody] BookingInputModel model)
     {
-        var numberOfDays = (int)(model.EndDate.Value - model.StartDate.Value).TotalDays;
-        var totalCost = numberOfDays * model.DayRate * model.NumberOfGuests;
-        return Content(totalCost.ToString("c"));
+        var numberOfDays = (int)(model.EndDate.Value -
+     model.StartDate.Value).TotalDays;
+        var totalCost = numberOfDays * model.Property.DayRate *
+     model.NumberOfGuests;
+        var result = new { TotalCost = totalCost };
+        return new JsonResult(result);
     }
     public class BookingInputModel
     {

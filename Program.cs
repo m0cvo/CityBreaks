@@ -34,7 +34,7 @@ builder.Services.Configure<RouteOptions>(options =>
     options.ConstraintMap.Add("slug", typeof(SlugParameterTransformer));
 });
 
-builder.Services.AddDbContext<CityBreaksContext>(options =>
+builder.Services.AddDbContext<CityBreaksContext>(options => 
 {
     options.UseSqlite(builder.Configuration.GetConnectionString("CityBreaksContext"));
 });
@@ -44,13 +44,10 @@ builder.Services.AddDbContext<CityBreaksContext>(options =>
 //    options.LoginPath = "/login";
 //});
 builder.Services.AddDefaultIdentity<CityBreaksUser>(options => {
-    //options.User.RequireUniqueEmail = false;
-    //options.Password.RequiredLength = 6;
     options.Password.RequireDigit = false;
     options.Password.RequireLowercase = false;
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequireUppercase = false;
-    options.SignIn.RequireConfirmedAccount = true;
 })
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<CityBreaksContext>();
@@ -74,6 +71,12 @@ builder.Services.AddAuthorization(options =>
 builder.Services.AddSingleton<IAuthorizationHandler, IsInRoleHandler>();
 builder.Services.AddSingleton<IAuthorizationHandler, HasClaimHandler>();
 builder.Services.AddSingleton<IBookingService, BookingService>();
+builder.Services.AddHsts(options =>
+{
+    options.Preload = true;
+    options.IncludeSubDomains = true;
+    options.MaxAge = TimeSpan.FromDays(365);
+});
 
 var app = builder.Build();
 
@@ -87,10 +90,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 //app.UseStatusCodePagesWithRedirects("/errors/{0}");
-app.UseStatusCodePagesWithReExecute("/errors/{0}");
+app.UseStatusCodePagesWithReExecute("/errors/{0}"); ;
 app.UseStaticFiles();
-
-
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();

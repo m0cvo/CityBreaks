@@ -4,3 +4,5 @@ Training excercise - this will not be published as a live website - I am not off
 
 It is worth noting that any passwords used for logging in to a site or storing user details when the site is created using ASP.net core Razor pages are hashed and salted to prevent passwords being stored in plain text
 or encrypted passwords being decoded.
+
+It is also worth noting that to prevent SQL Injection attacks, the resulting SQL produced from EF Core is paramaterized to prevent it.

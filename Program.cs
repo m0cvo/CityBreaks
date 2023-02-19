@@ -71,6 +71,8 @@ builder.Services.AddAuthorization(options =>
 builder.Services.AddSingleton<IAuthorizationHandler, IsInRoleHandler>();
 builder.Services.AddSingleton<IAuthorizationHandler, HasClaimHandler>();
 builder.Services.AddSingleton<IBookingService, BookingService>();
+
+//This is where we configure the HSTS service to ensure the app is secure from broken domain attacks.
 builder.Services.AddHsts(options =>
 {
     options.Preload = true;

@@ -15,7 +15,11 @@ using Microsoft.AspNetCore.Authorization;
 using static CityBreaks.Pages.CityModel;
 using Microsoft.AspNetCore.Mvc;
 
-var builder = WebApplication.CreateBuilder(args);
+//var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(new WebApplicationOptions
+{
+    EnvironmentName = "Staging"
+});
 
 // Add builder.Services to the container.
 builder.Services.AddRazorPages(options => {
@@ -60,7 +64,14 @@ builder.Services.AddScoped<IPriceService, GbPriceService>();
 builder.Services.AddScoped<IPriceService, UsPriceService>();
 builder.Services.AddScoped<IPriceService, DefaultPriceService>();
 builder.Services.AddScoped<IPropertyService, PropertyService>();
-builder.Services.AddTransient<IEmailSender, EmailService>();
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.AddTransient<IEmailSender, EmailService>();
+}
+else
+{
+    builder.Services.AddTransient<IEmailSender, ProductionEmailService>();
+}
 builder.Services.AddAuthorization();
 builder.Services.AddAuthorization(options =>
 {
@@ -79,6 +90,8 @@ builder.Services.AddHsts(options =>
     options.IncludeSubDomains = true;
     options.MaxAge = TimeSpan.FromDays(365);
 });
+builder.Services.Configure<SmtpSettings>(
+    builder.Configuration.GetSection(nameof(SmtpSettings)));
 
 var app = builder.Build();
 

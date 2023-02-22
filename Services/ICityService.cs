@@ -1,6 +1,6 @@
-﻿using CityBreaks.Models;
+﻿using CityBreaks1.Models;
 
-namespace CityBreaks.Services
+namespace CityBreaks1.Services
 {
     public interface ICityService
     {

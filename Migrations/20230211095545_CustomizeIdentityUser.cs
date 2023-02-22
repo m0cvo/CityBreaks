@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace CityBreaks.Migrations
+namespace CityBreaks1.Migrations
 {
     public partial class CustomizeIdentityUser : Migration
     {

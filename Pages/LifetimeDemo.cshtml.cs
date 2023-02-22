@@ -1,7 +1,7 @@
-using CityBreaks.Services;
+using CityBreaks1.Services;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CityBreaks.Pages
+namespace CityBreaks1.Pages
 {
     public class LifetimeDemoModel : PageModel
     {

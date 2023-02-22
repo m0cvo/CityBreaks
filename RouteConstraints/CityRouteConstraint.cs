@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Routing;
 using System;
 using System.Linq;
 
-namespace CityBreaks.RouteContraints
+namespace CityBreaks1.RouteContraints
 {
     public class CityRouteConstraint : IRouteConstraint
     {

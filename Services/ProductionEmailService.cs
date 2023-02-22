@@ -1,9 +1,9 @@
-﻿using CityBreaks.Models;
+﻿using CityBreaks1.Models;
 using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using MimeKit;
 
-namespace CityBreaks.Services
+namespace CityBreaks1.Services
 {
     //public class ProductionEmailService : IEmailSender
     //{

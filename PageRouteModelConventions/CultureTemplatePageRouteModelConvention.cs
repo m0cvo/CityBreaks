@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.ApplicationModels;
 
-namespace CityBreaks.PageRouteModelConventions
+namespace CityBreaks1.PageRouteModelConventions
 {
     public class CultureTemplatePageRouteModelConvention : IPageRouteModelConvention
     {

@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CityBreaks.Pages.RolesManager
+namespace CityBreaks1.Pages.RolesManager
 {
     public class CreateModel : PageModel
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 
-namespace CityBreaks.AuthorizationRequirements
+namespace CityBreaks1.AuthorizationRequirements
 {
     public class ViewRolesRequirement : IAuthorizationRequirement
     {

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 
-namespace CityBreaks.ValidationAttributes
+namespace CityBreaks1.ValidationAttributes
 {
     public class CompareFirstLetterAttribute : ValidationAttribute
     {

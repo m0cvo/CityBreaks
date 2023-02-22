@@ -1,8 +1,8 @@
-using CityBreaks.Models;
+using CityBreaks1.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CityBreaks.Pages.CountryManager
+namespace CityBreaks1.Pages.CountryManager
 {
     public class EditModel : PageModel
     {

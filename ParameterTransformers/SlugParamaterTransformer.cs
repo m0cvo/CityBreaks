@@ -1,4 +1,4 @@
-﻿namespace CityBreaks.ParameterTransformers
+﻿namespace CityBreaks1.ParameterTransformers
 {
     public class SlugParameterTransformer :
  IOutboundParameterTransformer

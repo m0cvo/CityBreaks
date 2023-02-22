@@ -1,4 +1,4 @@
-﻿namespace CityBreaks.Services
+﻿namespace CityBreaks1.Services
 {
     public class FrPriceService : IPriceService
     {

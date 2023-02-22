@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace CityBreaks.Models
+namespace CityBreaks1.Models
 {
     public class CityBreaksUser : IdentityUser
     {

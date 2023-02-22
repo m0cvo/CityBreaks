@@ -1,9 +1,9 @@
-using CityBreaks.Models;
+using CityBreaks1.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace CityBreaks.Pages.ClaimsManager
+namespace CityBreaks1.Pages.ClaimsManager
 {
     public class IndexModel : PageModel
     {

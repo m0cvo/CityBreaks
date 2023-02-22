@@ -6,12 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using CityBreaks.Data;
-using CityBreaks.Models;
-using CityBreaks.Services;
+using CityBreaks1.Data;
+using CityBreaks1.Models;
+using CityBreaks1.Services;
 using System.ComponentModel.DataAnnotations;
 
-namespace CityBreaks.Pages.PropertyManager
+namespace CityBreaks1.Pages.PropertyManager
 {
     public class EditModel : PageModel
     {

@@ -1,25 +1,25 @@
-using CityBreaks.RouteContraints;
-using CityBreaks.Data;
-using CityBreaks.Models;
-using CityBreaks.PageRouteModelConventions;
-using CityBreaks.ParameterTransformers;
-using CityBreaks.RouteContraints;
-using CityBreaks.Services;
+using CityBreaks1.RouteContraints;
+using CityBreaks1.Data;
+using CityBreaks1.Models;
+using CityBreaks1.PageRouteModelConventions;
+using CityBreaks1.ParameterTransformers;
+using CityBreaks1.RouteContraints;
+using CityBreaks1.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
-using CityBreaks.AuthorizationHandlers;
+using CityBreaks1.AuthorizationHandlers;
 using Microsoft.AspNetCore.Authorization;
-using static CityBreaks.Pages.CityModel;
+using static CityBreaks1.Pages.CityModel;
 using Microsoft.AspNetCore.Mvc;
 
-//var builder = WebApplication.CreateBuilder(args);
-var builder = WebApplication.CreateBuilder(new WebApplicationOptions
+var builder = WebApplication.CreateBuilder(args);
+/*var builder = WebApplication.CreateBuilder(new WebApplicationOptions
 {
     EnvironmentName = "Staging"
-});
+});*/
 
 // Add builder.Services to the container.
 builder.Services.AddRazorPages(options => {

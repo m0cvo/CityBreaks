@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Routing;
 using System.Text.RegularExpressions;
 
-namespace CityBreaks.ParameterTransformers
+namespace CityBreaks1.ParameterTransformers
 {
     public class KebabPageRouteParameterTransformer : IOutboundParameterTransformer
     {

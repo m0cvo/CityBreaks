@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CityBreaks.ValidationAttributes
+namespace CityBreaks1.ValidationAttributes
 {
     public class UploadFileExtensionsAttribute : ValidationAttribute
     {

@@ -1,9 +1,9 @@
-﻿using CityBreaks.Models;
-using CityBreaks.Services;
+﻿using CityBreaks1.Models;
+using CityBreaks1.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CityBreaks.Pages
+namespace CityBreaks1.Pages
 {
     public class IndexModel : PageModel
     {

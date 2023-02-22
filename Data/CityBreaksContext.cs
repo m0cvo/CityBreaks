@@ -1,9 +1,9 @@
-﻿using CityBreaks.Data.Configuration;
-using CityBreaks.Models;
+﻿using CityBreaks1.Data.Configuration;
+using CityBreaks1.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace CityBreaks.Data
+namespace CityBreaks1.Data
 {
     public class CityBreaksContext : IdentityDbContext<CityBreaksUser>
     {

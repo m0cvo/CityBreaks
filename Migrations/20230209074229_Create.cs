@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace CityBreaks.Migrations
+namespace CityBreaks1.Migrations
 {
     public partial class Create : Migration
     {

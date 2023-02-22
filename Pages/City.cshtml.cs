@@ -1,10 +1,10 @@
-using CityBreaks.Models;
-using CityBreaks.Services;
+using CityBreaks1.Models;
+using CityBreaks1.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 
-namespace CityBreaks.Pages;
+namespace CityBreaks1.Pages;
 
 public class CityModel : PageModel
 {

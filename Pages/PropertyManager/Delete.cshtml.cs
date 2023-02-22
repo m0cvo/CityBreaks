@@ -1,9 +1,9 @@
-﻿using CityBreaks.Models;
-using CityBreaks.Services;
+﻿using CityBreaks1.Models;
+using CityBreaks1.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CityBreaks.Pages.PropertyManager
+namespace CityBreaks1.Pages.PropertyManager
 {
     public class DeleteModel : PageModel
     {

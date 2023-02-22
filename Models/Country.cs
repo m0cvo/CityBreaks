@@ -1,4 +1,4 @@
-﻿namespace CityBreaks.Models
+﻿namespace CityBreaks1.Models
 {
     public class Country
     {

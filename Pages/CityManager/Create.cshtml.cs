@@ -1,10 +1,10 @@
-using CityBreaks.ValidationAttributes;
+using CityBreaks1.ValidationAttributes;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 using AngleSharp;
 
-namespace CityBreaks.Pages.CityManager
+namespace CityBreaks1.Pages.CityManager
 {
     public class CreateModel : PageModel
     {

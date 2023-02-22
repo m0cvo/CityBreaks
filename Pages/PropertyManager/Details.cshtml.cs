@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using CityBreaks.Data;
-using CityBreaks.Models;
+using CityBreaks1.Data;
+using CityBreaks1.Models;
 
-namespace CityBreaks.Pages.PropertyManager
+namespace CityBreaks1.Pages.PropertyManager
 {
     public class DetailsModel : PageModel
     {
-        private readonly CityBreaks.Data.CityBreaksContext _context;
+        private readonly CityBreaks1.Data.CityBreaksContext _context;
 
-        public DetailsModel(CityBreaks.Data.CityBreaksContext context)
+        public DetailsModel(CityBreaks1.Data.CityBreaksContext context)
         {
             _context = context;
         }

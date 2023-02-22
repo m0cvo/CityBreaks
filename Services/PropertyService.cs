@@ -1,8 +1,8 @@
-﻿using CityBreaks.Data;
-using CityBreaks.Models;
+﻿using CityBreaks1.Data;
+using CityBreaks1.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace CityBreaks.Services
+namespace CityBreaks1.Services
 {
     public class PropertyService : IPropertyService
     {

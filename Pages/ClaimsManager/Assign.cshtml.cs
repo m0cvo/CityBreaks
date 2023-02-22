@@ -1,4 +1,4 @@
-using CityBreaks.Models;
+using CityBreaks1.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 
-namespace CityBreaks.Pages.ClaimsManager
+namespace CityBreaks1.Pages.ClaimsManager
 {
     public class AssignModel : PageModel
     {

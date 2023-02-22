@@ -1,7 +1,7 @@
-﻿using CityBreaks.AuthorizationRequirements;
+﻿using CityBreaks1.AuthorizationRequirements;
 using Microsoft.AspNetCore.Authorization;
 
-namespace CityBreaks.AuthorizationHandlers
+namespace CityBreaks1.AuthorizationHandlers
 {
     public class IsInRoleHandler : AuthorizationHandler<ViewRolesRequirement>
     {

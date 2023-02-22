@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using MimeKit;
 using MimeKit.IO;
 
-namespace CityBreaks.Services
+namespace CityBreaks1.Services
 {
     public class EmailService : IEmailSender
     {

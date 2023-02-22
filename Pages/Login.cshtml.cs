@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
 using System.ComponentModel.DataAnnotations;
 
-namespace CityBreaks.Pages
+namespace CityBreaks1.Pages
 {
     public class LoginModel : PageModel
     {

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CityBreaks.Pages.CityManager
+namespace CityBreaks1.Pages.CityManager
 {
     public class IndexModel : PageModel
     {

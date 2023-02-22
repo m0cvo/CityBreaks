@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
-namespace CityBreaks.Models
+namespace CityBreaks1.Models
 {
     public enum Rating
     {

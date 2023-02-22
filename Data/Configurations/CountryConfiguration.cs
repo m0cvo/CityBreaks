@@ -1,8 +1,8 @@
-﻿using CityBreaks.Models;
+﻿using CityBreaks1.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace CityBreaks.Data.Configuration;
+namespace CityBreaks1.Data.Configuration;
 public class CountryConfiguration : IEntityTypeConfiguration<Country>
 {
     public void Configure(EntityTypeBuilder<Country> builder)

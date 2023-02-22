@@ -1,4 +1,4 @@
-using CityBreaks.Models;
+using CityBreaks1.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
-namespace CityBreaks.Pages.RolesManager
+namespace CityBreaks1.Pages.RolesManager
 {
     [Authorize(Roles = "Admin")]
     public class AssignModel : PageModel

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CityBreaks.Pages.Shared
+namespace CityBreaks1.Pages.Shared
 {
     public class _PropertyDetailsPartialModel : PageModel
     {
